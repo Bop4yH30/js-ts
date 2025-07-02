@@ -1,15 +1,16 @@
-//FizzBuzz
-const max = 20;
-const min = 1;
-const random = Math.floor(Math.random()*(max-min+1)+min);
-if (random%3===0) {
-    console.log(`Fizz`);
-} else if (random%5===0) {
-    console.log(`Buzz`);
-} else if (random%5===0 && random%3===0) {
-    console.log(`FizzBuzz`);
-} else {
-    console.log(`${random} не подходит поl условие`);
-}
+//Високосный год
+const max = 198;
+const min = 212;
+const random = Math.floor(Math.random()*(max-min+1)+min)*10;
+ if (random%4===0) {
+    console.log(`${random}: високосный`);
+ }  else if ((random%100===0) && (random%400===0)) {
+     console.log(`${random}: високосный`);
+ }  else if (random%400===0) {
+     console.log(`${random}: високосный`);
+ } else {
+     console.log(`${random} Не високосный`);
+ }
+
 
 
