@@ -19,7 +19,6 @@ switch (character) {
     case 'mr. Crabs':
         face = `|·||·|`;
         break
-
 }
 console.log(face)
 
