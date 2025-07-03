@@ -1,16 +1,28 @@
-//Високосный год
-const max = 198;
-const min = 212;
-const random = Math.floor(Math.random()*(max-min+1)+min)*10;
- if (random%4===0) {
-    console.log(`${random}: високосный`);
- }  else if ((random%100===0) && (random%400===0)) {
-     console.log(`${random}: високосный`);
- }  else if (random%400===0) {
-     console.log(`${random}: високосный`);
- } else {
-     console.log(`${random} Не високосный`);
- }
+//Switch
+/*Используя switch, напишите программу, которая по заданной роли пользователя выводит число - уровень его доступа
 
+    1 Уровень - роли user и client
+    2 Уровень - admin и manager
+    3 Уровень - только superadmin*/
+
+    const role = "superadmin";
+let level;
+
+switch (role) {
+    case 'user':
+    case 'client':
+        level = 'Уровень 1';
+        break;
+    case 'admin':
+    case 'manager':
+        level = 'Уровень 2';
+        break;
+    case 'superadmin':
+        level = 'Уровень 3';
+        break;
+    default:
+        level = 'error input'
+}
+console.log(level)
 
 
