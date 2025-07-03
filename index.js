@@ -1,28 +1,26 @@
-//Switch
-/*Используя switch, напишите программу, которая по заданной роли пользователя выводит число - уровень его доступа
+//Sponge Bob
 
-    1 Уровень - роли user и client
-    2 Уровень - admin и manager
-    3 Уровень - только superadmin*/
+    const character = "mr. Crabs";
+const base = '( · )( · )';
+let face;
 
-    const role = "superadmin";
-let level;
+switch (character) {
+    case 'spongebob':
+        face = `| ${base} |`;
+        break;
+    case 'patrick':
+            face = `/ ${base} \\`;
+        break;
+    case 'squidward':
+        face = `( ${base} )`;
+        break;
+    case 'plankton':
+        face = `| ( · ) |`;
+    case 'mr. Crabs':
+        face = `|·||·|`;
+        break
 
-switch (role) {
-    case 'user':
-    case 'client':
-        level = 'Уровень 1';
-        break;
-    case 'admin':
-    case 'manager':
-        level = 'Уровень 2';
-        break;
-    case 'superadmin':
-        level = 'Уровень 3';
-        break;
-    default:
-        level = 'error input'
 }
-console.log(level)
+console.log(face)
 
 
