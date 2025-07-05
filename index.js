@@ -1,25 +1,26 @@
-//Sponge Bob
+//Маппер
 
-    const character = "mr. Crabs";
-const base = '( · )( · )';
-let face;
+    const our = "accepted";
+let outer;
 
-switch (character) {
-    case 'spongebob':
-        face = `| ${base} |`;
+switch (our) {
+    case 'approved':
+        outer = `approved`;
         break;
-    case 'patrick':
-            face = `/ ${base} \\`;
+    case 'pending':
+    case 'moderation':
+    case 'waiting':
+            outer = `pending`;
         break;
-    case 'squidward':
-        face = `( ${base} )`;
+    case 'declined':
+    case 'rejected':
+    case 'notaccepted':
+        outer = `declined`;
         break;
-    case 'plankton':
-        face = `| ( · ) |`;
-    case 'mr. Crabs':
-        face = `|·||·|`;
-        break
+    default:
+        outer = 'pending';
+        break;
 }
-console.log(face)
+console.log(outer)
 
 
