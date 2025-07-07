@@ -1,20 +1,22 @@
-// Циклы Бросок кубиковБросок кубиков
-
+// Циклы Гласные буквы
 let count = 0;
-const max =6;
-const min = 1;
-let num1 = Math.floor(Math.random()*(max-min+1)+min);
-let num2 = Math.floor(Math.random()*(max-min+1)+min);
-while (num1!==num2){
-     num1 = Math.floor(Math.random()*(max-min+1)+min);
-     num2 = Math.floor(Math.random()*(max-min+1)+min);
+const vowels = ["а", "у", "о", "ы", "и", "э", "я", "ю", "ё", "е"];
+const newvowels =[];
+const words = 'ПроработАнный';
+const long = words.length;
+for (let i = 0; i<vowels.length; i++){
+    newvowels.push(vowels[i].toUpperCase());
+}
+for (const word  of words){
+    if (vowels.includes(word)) {
         count++;
-    if (num1===num2){
-        break;
+            }
+    else if (newvowels.includes(word)){
+        count++;
     }
 }
-console.log(`Попыток:${count}`)
-console.log(`Дубль:${num1}`);
+console.log(`Гласных:${count}`);
+console.log(`Согласных:${long-count}`);
 
 
 
