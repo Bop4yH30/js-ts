@@ -1,26 +1,20 @@
-// Циклы Мин, макс, среднее
-const array = [2, -3, 5, 6, 7, -5, -36, 4, 10, -7, 0];
-const count = array.length;
-let max = array[0];
-let min = array[0];
-let summa = 0;
-// const array1 = array.splice(array.length-2,1);
-for (let i=0; i<count; i++) {
-    summa = summa + array[i];
-}
-for (let i=0; i<count; i++) {
-    if (array[i] > max) {
-        max = array[i];
+// Циклы Бросок кубиковБросок кубиков
+
+let count = 0;
+const max =6;
+const min = 1;
+let num1 = Math.floor(Math.random()*(max-min+1)+min);
+let num2 = Math.floor(Math.random()*(max-min+1)+min);
+while (num1!==num2){
+     num1 = Math.floor(Math.random()*(max-min+1)+min);
+     num2 = Math.floor(Math.random()*(max-min+1)+min);
+        count++;
+    if (num1===num2){
+        break;
     }
 }
-for (let i =0; i<count; i++) {
-    if (array[i] < min) {
-        min = array[i];
-    }
-}
+console.log(`Попыток:${count}`)
+console.log(`Дубль:${num1}`);
 
 
-console.log(max);
-console.log(min);
-console.log((summa/count).toFixed(2))
 
