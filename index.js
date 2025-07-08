@@ -1,22 +1,19 @@
-// Циклы Гласные буквы
-let count = 0;
-const vowels = ["а", "у", "о", "ы", "и", "э", "я", "ю", "ё", "е"];
-const newvowels =[];
-const words = 'ПроработАнный';
-const long = words.length;
-for (let i = 0; i<vowels.length; i++){
-    newvowels.push(vowels[i].toUpperCase());
+// Циклы Ключи и значения
+const people =    { id: 8, name: 'Александр', gender: 'm', age: 25 };
+const keys = [];
+let znacheniya = [];
+let z
+let b
+for (const key in people){
+    keys.push(key);
 }
-for (const word  of words){
-    if (vowels.includes(word)) {
-        count++;
-            }
-    else if (newvowels.includes(word)){
-        count++;
-    }
-}
-console.log(`Гласных:${count}`);
-console.log(`Согласных:${long-count}`);
+for (let i= 0; i<people.length; i++ ){
+     z = keys[i];
+ }
+
+
+
+
 
 
 
