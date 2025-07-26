@@ -1,41 +1,36 @@
-//Циклы Деление яблок
-const mary = {
-    name: 'Mary',
-    wantApples: 2,
+//Циклы Самый длинный массив
+const user = {
+    example: [1, 2, 3],
+    'X-Address': {
+        street: 'Ленина',
+        house: '10-Б',
+    },
+    data: { length: 50 },
+    nickname: null,
+    permissions: [true, false],
+    age: 101,
+    emails: ['alice@example.com', 'bob@example.com', 'charlie@example.com', 'peter@example.com'],
+    name: 'Peter Charles',
+    isAdult: true,
+    now: new Date().toISOString(),
 };
+let maxSize = null;
+let result = null;
 
-const alex = {
-    name: 'Alex',
-    wantApples: 1,
-};
+for (const key in user) {
+    const value = user[key];
 
-const mike = {
-    name: 'Mike',
-    wantApples: 5,
-};
+    if (!Array.isArray(value)) {
+        continue;
+    }
 
-const brown = {
-    name: 'Brown',
-    wantApples: 4,
-};
-
-const people = [mary, alex, mike, brown];
-const apples = 11;
-
-const applesForOnePeople = Math.floor(apples/people.length);
-const happy = [];
-const notHappy = [];
-for (const person of people) {
-    person.eat = applesForOnePeople;
-    person.inHappy = applesForOnePeople >= person.wantApples;
-    if (person.inHappy){
-        happy.push(person)
-    }else {
-        notHappy.push(person);
+    if (maxSize === null || value.length > maxSize) {
+        maxSize = value.length;
+        result = value[value.length - 1];
     }
 }
-console.log(happy)
-console.log(notHappy)
+
+console.log(`Максимальная длина: ${maxSize}. Последнее значение: ${result}`);
         
 
     
