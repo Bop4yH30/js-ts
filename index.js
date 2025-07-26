@@ -1,25 +1,27 @@
-//Циклы Вывод матрицы
-const matrixs = [
-    ['Id', 'Title', 'Description'],
-    [1, 'Title-1', 'Description-1'],
-    [2, 'Title-2', 'Description-2'],
-    [3, 'Title-3', 'Description-3', 'Поле с багом'],
-    [4, 'Title-4', 'Description-4'],
-    [5, 'Title-5', 'Description-5'],
-    [6, 'Title-6', 'Description-6', 'Поле с багом'],
-];
- let result='';
- let arr = [];
-for (let i = 0; i < matrixs.length; i++) {
-         arr = matrixs[i];
-         result = '';
-      for (let j = 0; j <arr.length ; j++){
-          if (j===0){
-              result = `${result+' '+arr[j]}\t`;
-          }else {
-           result = `${result+' '+arr[j]}`;}
-      }
-      console.log(result);
+//Циклы Возраст
+const users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 25 },
+    { name: 'Diana', age: 35 },
+    { name: 'Eve', age: 30 },
+    { name: 'Frank', age: 28 },
+    { name: 'Grace', age: 25 },
+    { name: 'Hannah', age: 41 },
+    { name: 'Ivy', age: 30 },
+    { name: 'Jack', age: 28 }
+    ];
+const counter = {};
+for (const user of users) {
+    if (counter[user.age] === undefined) {
+        counter[user.age] = 0;
+    }
+
+    counter[user.age]++;
+}
+
+for (const key in counter) {
+    console.log(`Возраст=${key}. Количество людей=${counter[key]}`);
 }
 
         
