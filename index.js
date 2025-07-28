@@ -1,36 +1,73 @@
-//Циклы Самый длинный массив
-const user = {
-    example: [1, 2, 3],
-    'X-Address': {
-        street: 'Ленина',
-        house: '10-Б',
-    },
-    data: { length: 50 },
-    nickname: null,
-    permissions: [true, false],
-    age: 101,
-    emails: ['alice@example.com', 'bob@example.com', 'charlie@example.com', 'peter@example.com'],
-    name: 'Peter Charles',
-    isAdult: true,
-    now: new Date().toISOString(),
+//Циклы Каскадёры
+const alice = {
+    name: 'Alice',
+    age: 10,
+    illness: null,
+    driverLicenses: ['B'],
 };
-let maxSize = null;
-let result = null;
 
-for (const key in user) {
-    const value = user[key];
+const bob = {
+    name: 'Bob',
+    age: 18,
+    illness: 'Cold',
+    driverLicenses: ['B'],
+};
 
-    if (!Array.isArray(value)) {
-        continue;
+const charlie = {
+    name: 'Charlie',
+    age: 17,
+    illness: null,
+    driverLicenses: ['C', 'E'],
+};
+
+const diana = {
+    name: 'Diana',
+    age: 22,
+    illness: 'H. Disease',
+    driverLicenses: ['A', 'C', 'D'],
+};
+
+const eve = {
+    name: 'Eve',
+    age: 35,
+    illness: null,
+    driverLicenses: ['A', 'B', 'E'],
+};
+
+const frank = {
+    name: 'Frank',
+    age: 37,
+    illness: null,
+    driverLicenses: [],
+};
+
+const gorge = {
+    name: 'Gorge',
+    age: 28,
+    illness: null,
+    driverLicenses: ['B', 'D'],
+};
+
+const persons = [alice, bob, charlie, diana, eve, frank, gorge];
+
+const invalidPersons = [];
+const validPersons = [];
+
+// ----- Код НИЖЕ нужно переписать ------
+for (let i = 0; i < persons.length; i++) {
+    const person = persons[i];
+
+    if (person.age >= 18 && person.driverLicenses.includes('B') && person.illness === null ) {
+         validPersons.push(person);
+            } else {
+         invalidPersons.push(person);
+            }
     }
+// ----- Код ВЫШЕ нужно переписать ------
 
-    if (maxSize === null || value.length > maxSize) {
-        maxSize = value.length;
-        result = value[value.length - 1];
-    }
-}
+console.log('Для трюка подходят:', validPersons);
+console.log('Для трюка НЕ подходят:', invalidPersons);
 
-console.log(`Максимальная длина: ${maxSize}. Последнее значение: ${result}`);
         
 
     
