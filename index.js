@@ -1,74 +1,68 @@
-//Циклы Каскадёры
-const alice = {
-    name: 'Alice',
-    age: 10,
-    illness: null,
-    driverLicenses: ['B'],
-};
+// ХОд Коня
+const size = 8; // Размер доски
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Буквенные подписи к доске
 
-const bob = {
-    name: 'Bob',
-    age: 18,
-    illness: 'Cold',
-    driverLicenses: ['B'],
-};
+const chessboard = [
+    // a  b   c   d   e   f   g   h
+    ['', '', '', '', '', '', '', 'x'], // 1
+    ['', '', 'x', '', '', '', '', ''], // 2
+    ['', '', '', '', '', '', '', ''], // 3
+    ['', '', '', '', '', '', '', ''], // 4
+    ['', '', '', '', 'x', '', '', ''], // 5
+    ['', '', '', '', '', '', '', ''], // 6
+    ['', '', '', '', '', '', '', ''], // 7
+    ['', '', '', '', '', '', '', ''], // 8
+];
+for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+        if (chessboard[i][j] !== 'x') {
+            continue;
+        }
 
-const charlie = {
-    name: 'Charlie',
-    age: 17,
-    illness: null,
-    driverLicenses: ['C', 'E'],
-};
+        const currentPosition = `${letters[j]}${i + 1}`;
+        const possibleMoves = [];
 
-const diana = {
-    name: 'Diana',
-    age: 22,
-    illness: 'H. Disease',
-    driverLicenses: ['A', 'C', 'D'],
-};
+        // Проверка всех 8 возможных ходов коня
+        // 1. Вверх-влево (2 вверх, 1 влево)
+        if (i > 1 && j > 0) {
+            possibleMoves.push(`${letters[j - 1]}${i - 1}`);
+        }
 
-const eve = {
-    name: 'Eve',
-    age: 35,
-    illness: null,
-    driverLicenses: ['A', 'B', 'E'],
-};
+        // 2. Вверх-вправо (2 вверх, 1 вправо)
+        if (i > 1 && j < size - 1) {
+            possibleMoves.push(`${letters[j + 1]}${i - 1}`);
+        }
 
-const frank = {
-    name: 'Frank',
-    age: 37,
-    illness: null,
-    driverLicenses: [],
-};
+        // 3. Вправо-вверх (2 вправо, 1 вверх)
+        if (j < size - 2 && i > 0) {
+            possibleMoves.push(`${letters[j + 2]}${i}`);
+        }
 
-const gorge = {
-    name: 'Gorge',
-    age: 28,
-    illness: null,
-    driverLicenses: ['B', 'D'],
-};
+        // 4. Вправо-вниз (2 вправо, 1 вниз)
+        if (j < size - 2 && i < size - 1) {
+            possibleMoves.push(`${letters[j + 2]}${i + 2}`);
+        }
 
-const persons = [alice, bob, charlie, diana, eve, frank, gorge];
+        // 5. Вниз-вправо (2 вниз, 1 вправо)
+        if (i < size - 2 && j < size - 1) {
+            possibleMoves.push(`${letters[j + 1]}${i + 3}`);
+        }
 
-const invalidPersons = [];
-const validPersons = [];
+        // 6. Вниз-влево (2 вниз, 1 влево)
+        if (i < size - 2 && j > 0) {
+            possibleMoves.push(`${letters[j - 1]}${i + 3}`);
+        }
 
-// ----- Код НИЖЕ нужно переписать ------
-for (let i = 0; i < persons.length; i++) {
-    const person = persons[i];
+        // 7. Влево-вниз (2 влево, 1 вниз)
+        if (j > 1 && i < size - 1) {
+            possibleMoves.push(`${letters[j - 2]}${i + 2}`);
+        }
 
-    if (person.age >= 18 && person.driverLicenses.includes('B') && person.illness === null ) {
-         validPersons.push(person);
-            } else {
-         invalidPersons.push(person);
-            }
+        // 8. Влево-вверх (2 влево, 1 вверх)
+        if (j > 1 && i > 0) {
+            possibleMoves.push(`${letters[j - 2]}${i}`);
+        }
+
+        console.log(`Конь на позиции ${currentPosition} может пойти на: ${possibleMoves.join(', ')}`);
     }
-// ----- Код ВЫШЕ нужно переписать ------
-
-console.log('Для трюка подходят:', validPersons);
-console.log('Для трюка НЕ подходят:', invalidPersons);
-
-        
-
-    
-
+}
